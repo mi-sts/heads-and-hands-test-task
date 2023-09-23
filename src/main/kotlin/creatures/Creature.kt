@@ -26,7 +26,7 @@ abstract class Creature(data: CreatureData) {
     var damageRange: IntRange = data.damageRange
         private set
 
-    private var isDied: Boolean = false
+    protected var isDead: Boolean = false
 
     init {
         if (data.attack !in 1..MaxAttackValue ||
@@ -53,7 +53,7 @@ abstract class Creature(data: CreatureData) {
     }
 
     fun takeDamage(damage: Int) {
-        if (isDied) {
+        if (isDead) {
             println("Died creature ($this) cannot be attacked!")
             return
         }
@@ -63,12 +63,12 @@ abstract class Creature(data: CreatureData) {
     }
 
     protected fun die() {
-        if (isDied) {
+        if (isDead) {
             println("Creature ($this) is already dead!")
             return
         }
 
-        isDied = true
+        isDead = true
         println("Creature ($this) died.")
     }
 

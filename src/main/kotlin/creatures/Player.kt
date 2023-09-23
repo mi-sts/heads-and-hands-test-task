@@ -9,7 +9,12 @@ class Player(data: CreatureData) : Creature(data) {
 
     private var remainingHealingsNumber: Int = MaxHealingsNumber
 
-    private fun useHealing() {
+    fun useHealing() {
+        if (isDead) {
+            println("Player is dead and cannot use a healing!")
+            return
+        }
+
         if (remainingHealingsNumber == 0) {
             println("Player ($this) has no healings anymore!")
             return
@@ -18,8 +23,7 @@ class Player(data: CreatureData) : Creature(data) {
         val healingHealth = calculateHealingHealth(this)
         health += healingHealth
 
-        println("Player ($this) use a healing.")
-        println("Health after a healing: $health")
+        println("Player ($this) use a healing. Current health: $health")
     }
 
     protected fun calculateHealingHealth(healingCreature: Creature): Int =

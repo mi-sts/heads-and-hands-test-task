@@ -25,8 +25,12 @@ private fun runTestCase() {
 
     strongMonster.attack(player)
     strongMonster.attack(player)
+    strongMonster.attack(player)
+    strongMonster.attack(player)
     strongMonster.attack(weakMonster)
 
+    player.useHealing()
+    player.attack(weakMonster)
     player.attack(weakMonster)
     player.attack(weakMonster)
     player.attack(weakMonster)
@@ -36,4 +40,6 @@ private fun runTestCase() {
 
     megaMonster.attack(player)
     megaMonster.attack(strongMonster)
+
+    player.useHealing()
 }
